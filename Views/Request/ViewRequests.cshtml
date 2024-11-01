@@ -1,0 +1,20 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model IEnumerable<BulkReversal.Models.Request>
+<!DOCTYPE html>
+    <html>
+    <head>
+        <title></title>
+    </head>
+    <body>
+        <h1 style="text-align:center">Made Requests</h1>
+    @foreach(var request in Model)
+    {   <a href="~/request/ReviewRequest/@request.Id">
+            <input type="hidden" class="form-control" value="@request.Id">
+            <p>@request.TransactionId</p>        </a>
+    }
+</body>
+    </html>

@@ -1,0 +1,43 @@
+﻿@model BulkReversal.ViewModel.RequestViewModel;
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Make Request</title>
+</head>
+<body>
+    <h1 style="text-align:center">Make Request</h1>
+
+    <form asp-controller="Request" asp-action="MakeRequest" method="post">
+        <div class="Transaction-form">
+            <h4 class="Request-title">Request(s)</h4>
+            <div class="row">
+                <div class="col-md-6 col-12 mb-20" id="appender">
+                    <!-- Template input for TransactionId, initially hidden -->
+                    <input type="text" name="TransactionId[0]" placeholder="Transaction ID" class="form-control mb-2">
+                </div>
+                <div onclick="Append()">
+                    <button class="btn btn-outline-primary mt-1 p-1" type="button"> + </button>
+                </div>
+                <div class="col-12">
+                    <button class="request-button mt-0">Submit</button>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <script>
+        var tCount = 1;
+        function Append() {
+            let appender = document.getElementById("appender");
+            const newField = document.createElement("input");
+            newField.setAttribute("type", "text");
+            newField.setAttribute("name", `TransactionId[${tCount}]`);
+            newField.setAttribute("placeholder", "Transaction ID");
+            newField.setAttribute("class", "form-control mb-2");
+
+            appender.appendChild(newField);
+            tCount++; // Increment the count after appending
+        }
+    </script>
+</body>
+</html>

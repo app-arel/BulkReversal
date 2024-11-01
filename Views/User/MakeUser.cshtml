@@ -1,0 +1,55 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model BulkReversal.Models.User;
+<!DOCTYPE html>
+    <html>
+    <head>
+        <title></title>
+    </head>
+    <body>
+        <h1 style="text-align:center">Pick User</h1>
+    <form asp-controller="User" asp-action="MakeUser" method="post">
+        <div class="Registration-form">
+            <h4 class="register-title">Register</h4>
+            <div class="row">
+                <div class="col-md-6 col-12 mb-20">
+                    <label>First Name</label>
+                    <input asp-for="FirstName" class="mb-0 form-control" type="text" placeholder="First Name">
+                    <span asp-validation-for="FirstName"></span>
+                </div>
+                <div class="col-md-6 col-12 mb-20">
+                    <label>Last Name</label>
+                    <input asp-for="LastName" class="mb-0 form-control" type="text" placeholder="Last Name">
+                    <span asp-validation-for="LastName"></span>
+                </div>
+                <div class="col-md-12 mb-20">
+                    <label>Email*</label>
+                    <input asp-for="Email" class="mb-0 form-control" type="email" placeholder="Email">
+                    <span asp-validation-for="Email"></span>
+                </div>
+                <div class="col-md-6 mb-20">
+                    <label>Privileges</label>
+                    <select asp-for="Priviledge" class="mb-0 form-select">
+                        <option value="" disabled selected>Select Privilege</option>
+                        <option value="1">Maker</option>
+                        <option value="2">Checker</option>
+                    </select>
+                    <span asp-validation-for="Priviledge"></span>
+                </div>
+                <div class="col-md-6 mb-20">
+                    <label>Password</label>
+                    <input asp-for="Password" class="mb-0 form-control" type="password" placeholder="Password">
+                    <span asp-validation-for="Password"></span>
+                </div>
+                <div class="col-12">
+                    <button type="submit" class="register-button btn btn-outline-primary mt-5">Register</button>
+                </div>
+            </div>
+        </div>
+    </form>
+
+</body>
+    </html>
