@@ -38,7 +38,7 @@ namespace BulkReversal.Controllers
                     _context.SaveChanges();
                 }
             
-                return View();
+                return View("Success");
         }
         [HttpGet]
         public IActionResult ViewRequests() { 
@@ -65,6 +65,7 @@ namespace BulkReversal.Controllers
                 var account = _context.Accounts.FirstOrDefault(x => x.AccountNumber == transaction.SenderAccount);
                 account.Balance = account.Balance + transaction.Amount;
                 Console.WriteLine(get.TransactionId);
+                _context.Requests.Remove(get);
                 _context.SaveChanges();
             }
             else
@@ -72,7 +73,7 @@ namespace BulkReversal.Controllers
                 Console.WriteLine("Falseeeeeeeeeeeeeeeeeeeeeeeeeeee");
             }
             _context.SaveChanges();
-            return View("MakeRequest");
+            return View("Success");
         }
     }
 }

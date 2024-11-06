@@ -3,18 +3,18 @@
 *@
 @{
 }
-@model BulkReversal.ViewModel.CompositeViewModel
+@model BulkReversal.Models.Request
 <!DOCTYPE html>
     <html>
     <head>
         <title></title>
     </head>
-    <body style="font-size:1.5rem">
-    <form asp-action="ApproveRequest" asp-controller="request" method="post">
+    <body>
+    <form asp-action="ApproveRequest" asp-controller="request" method="post" style="font-size:1.5rem">
         
-        Request Id: @Model.Request.Id<br />
-        Transaction Id: @Model.Request.TransactionId<br />
-        User Id: @Model.Request.userId<br />
+        Request Id: @Model.Id<br />
+        Transaction Id: @Model.TransactionId<br />
+        User Id: @Model.userId<br />
         <input type="checkbox" name="Approved" value="true" class="form-check form-check-inline bg-primary w-3"/><br />
         <i>Note that if you don not tick this box, you have automatically declined the request</i><br />
         <button class="btn btn-outline-primary" type="submit">Submit</button>
